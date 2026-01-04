@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Farm Products – Ningo Prampram</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #2e7d32;
+      --secondary: #f4f4f4;
+      --dark: #222;
+    }
+/* ABOUT SECTION */
+.about {
+  padding: 80px 40px;
+  background: var(--secondary);
+}
+
+.about h2 {
+  text-align: center;
+  color: var(--primary);
+  margin-bottom: 30px;
+}
+
+.about-content {
+  max-width: 900px;
+  margin: auto;
+  background: white;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+/* MORE PRODUCTS */
+.product-card span {
+  display: block;
+  margin-top: 8px;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+/* CONTACT SECTION */
+.contact {
+  padding: 80px 40px;
+  background: white;
+}
+
+.contact h2 {
+  text-align: center;
+  color: var(--primary);
+  margin-bottom: 30px;
+}
+
+.contact-form {
+  max-width: 600px;
+  margin: auto;
+  background: var(--secondary);
+  padding: 30px;
+  border-radius: 8px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.contact-form button {
+  width: 100%;
+  background: var(--primary);
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.contact-form button:hover {
+  background: #1b5e20;
+}
+
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: var(--dark);
+      line-height: 1.6;
+    }
+
+    /* NAVBAR */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 40px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      z-index: 1000;
+    }
+
+    nav h1 {
+      color: var(--primary);
+      font-size: 20px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--dark);
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      color: var(--primary);
+    }
+
+    /* HERO SECTION */
+    .hero {
+      height: 100vh;
+      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+                  url('https://images.unsplash.com/photo-1501004318641-b39e6451bec6') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      padding: 20px;
+    }
+
+    .hero h2 {
+      font-size: 43px;
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      font-size: 19px;
+      margin-bottom: 25px;
+    }
+
+    .btn {
+      background: var(--primary);
+      color: white;
+      padding: 12px 30px;
+      border: none;
+      border-radius: 5px;
+      font-size: 17px;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    .btn:hover {
+      background: #1b5e20;
+    }
+
+    .btn:active {
+      transform: scale(0.95);
+    }
+
+    /* CONTENT SECTION */
+    .content {
+      display: flex;
+      gap: 30px;
+      padding: 80px 40px;
+      background: var(--secondary);
+    }
+
+    .content div {
+      flex: 1;
+      background: white;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .content h3 {
+      margin-bottom: 10px;
+      color: var(--primary);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 700px) {
+      .content {
+        flex-direction: column;
+      }
+
+      .hero h2 {
+        font-size: 30px;
+      }
+
+      nav {
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
+      
+    /* PRODUCT GRID */
+    .products {
+      padding: 80px 40px;
+      background: white;
+    }
+
+    .products h2 {
+      text-align: center;
+      color: var(--primary);
+      margin-bottom: 40px;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 25px;
+    }
+
+    .product-card {
+      background: var(--secondary);
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+
+    /* NEWSLETTER */
+    .newsletter {
+      background: var(--primary);
+      color: white;
+      padding: 60px 40px;
+      text-align: center;
+    }
+
+    .newsletter input {
+      padding: 12px;
+      width: 250px;
+      border: none;
+      border-radius: 4px;
+      margin-right: 10px;
+    }
+
+    .newsletter button {
+      padding: 12px 25px;
+      border: none;
+      border-radius: 4px;
+      background: blue;
+      color: white;
+      cursor: pointer;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #111;
+      color: #ccc;
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <h1>Ningo Farm Hub</h1>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Products</a></li>
+      <li><a href="#">About</a></li>
+      <li><a  href="#">Help</></li>
+      <li><a href="#">Contact Us</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div>
+      <h2>Fresh Harvest Produce </h2>
+      <p>Fresh from the farms of Ningo Prampram District</p>
+      <button class="btn">Order Now</button>
+    </div>
+  </section>
+
+  <!-- TWO COLUMN SECTION -->
+  <section class="content">
+    <div>
+      <h3>Our Mission</h3>
+      <p>We connect local farmers with consumers, providing access to fresh, affordable produce while empowering farmers to thrive. Our efficient delivery process ensures timely and convenient pickup or delivery straight to your doorstep, fostering a more equitable and sustainable food ecosystem.</p>
+    </div>
+    <div>
+      <h3>Our Products</h3>
+      <p>Fresh veggies, grains, fruits, and organic goods, grown with care.</p>
+    </div>
+  </section>
+
+  <!-- PRODUCTS -->
+  <section class="products">
+    <h2>Featured Products</h2>
+    <div class="product-grid">
+      <div class="product-grid">
+  <div class="product-card">
+    <img src="https://images.unsplash.com/photo-1567306226416-28f0efdc88ce">
+    <h4>Fresh Tomatoes</h4>
+    <p>Organic & juicy</p>
+    <span>GH₵ 15 / basket</span>
+  </div>
+
+  <div class="product-card">
+    <img src="https://images.unsplash.com/photo-1506806732259-39c2d0268443">
+    <h4>Maize</h4>
+    <p>Premium grains</p>
+    <span>GH₵ 120 / bag</span>
+  </div>
+
+  <div class="product-card">
+    <img src="https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2">
+    <h4>Fresh Pepper</h4>
+    <p>Hot & nutritious</p>
+    <span>GH₵ 10 / bowl</span>
+  </div>
+
+  <div class="product-card">
+    <img src="https://images.unsplash.com/photo-1592924357228-91a4daadcfea">
+    <h4>Garden Eggs</h4>
+    <p>Freshly harvested</p>
+    <span>GH₵ 12 / bowl</span>
+  </div>
+</div>
+  </section>
+<section class="about">
+  <h2>About Us</h2>
+  <div class="about-content">
+    <p>
+      Ningo Farm Hub is a community-focused agricultural platform that links Ningo Prampram District farmers directly to consumers, promoting eco-friendly farming, fair prices, and access to fresh produce, while boosting local farmers' economic prospects.
+    </p>
+  </div>
+</section>
+
+
+  <!-- NEWSLETTER -->
+  <section class="newsletter">
+    <h2>Subscribe to Our Newsletter</h2>
+    <p>Get updates on fresh arrivals and prices</p>
+<br>
+    <input type="email" placeholder="Example@gmail.com">
+    <button>Subscribe</button>
+  </section>
+
+<!-- FACEBOOK -->
+  <section class="facebook">
+    <h2>follow us on</h2>
+    <p>#HarvestHubGH>/p>
+    <p>Get updates on fresh arrivals and prices</p>
+   
+  </section>
+<section class="contact">
+  <h2>Contact Us</h2>
+  <form class="contact-form">
+    <input type="text" placeholder="Your Name" required>
+    <input type="email" placeholder="Your Email" required>
+    <textarea rows="4" placeholder="Your Message"></textarea>
+    <button type="submit">Send Message</button>
+  </form>
+</section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2025 Ningo Farm Hub. All Rights Reserved.</p>
+  </footer>
+
+</body>
+</html>
